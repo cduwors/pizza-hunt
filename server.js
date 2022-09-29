@@ -10,7 +10,7 @@ app.use(express.static("public"));
 
 mongoose.connect(
 	// process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/pizza-hunt',
-	process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/pizza-hunt",
+	process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/pizzaHunt",
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
