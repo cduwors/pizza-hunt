@@ -170,6 +170,30 @@ function handleNewReplySubmit(event) {
 	}
 
 	const formData = { writtenBy, replyBody };
+
+	fetch(`/api/comments/${pizzaId}/${commentId}`, {
+		method: "PUT",
+		headers: {
+			Accept: "application/json",
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(formData),
+	})
+		.then((response) => {
+			console.log(response);
+			if (!response.ok) {
+				console.log("hi");
+				throw new Error({ message: "Something went wrong!" });
+			}
+			return response.json();
+		})
+		.then((commentResponse) => {
+			console.log(commentResponse);
+			location.reload();
+		})
+		.catch((err) => {
+			console.log(err);
+		});
 }
 
 $backBtn.addEventListener("click", function () {
